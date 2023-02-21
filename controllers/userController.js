@@ -1,18 +1,17 @@
 import mongoose from "mongoose";
-import userSchema from "../models/User.js";
-const User = mongoose.model('User', userSchema);
+import User from "../models/User.js";
 const userController = {
     register: async (req, res) => {
-        const newUser = new User({
+        const user = new User({
             name: req.body.name,
             email: req.body.email,
-            password: req.body.password,
+            password: req.body.password
         })
         try{
-            const savedUser = await newUser.save();
-            res.send(savedUser);
+            const savedDoc = await user.save();
+            res.send(savedDoc);
         } catch(err){
-            res.status(400).send(err);
+            res.send(err);
         }
     },
     login: (req, res) => {

@@ -8,7 +8,13 @@ const port = process.env.PORT || 3030;
 const URL = process.env.MONGODB_CONNECTION_URL;
 dotenv.config();
 mongoose.set('strictQuery', false)
-mongoose.connect(URL, {}, () => {console.log('DB connected');})
+mongoose.connect('mongodb+srv://gabstoffel:FxkD3jcWR0Y7nASf@cluster0.kbmfuq3.mongodb.net/?retryWrites=true&w=majority', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}, () => {console.log('DB connected')})
 
 app.use('/user', router);
 app.listen(port, ()=>{console.log(`Running on port: ${port}`)});
+
+//password: FxkD3jcWR0Y7nASf;
+//username: gabstoffel;
