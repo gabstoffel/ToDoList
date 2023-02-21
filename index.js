@@ -1,5 +1,6 @@
 import express from 'express';
 import router from './routes/userRouter.js';
+import getAuthorization from './routes/adminRouter.js';
 import mongoose from 'mongoose';
 import * as dotenv from 'dotenv';
 
@@ -13,7 +14,8 @@ mongoose.connect('mongodb+srv://gabstoffel:FxkD3jcWR0Y7nASf@cluster0.kbmfuq3.mon
     useUnifiedTopology: true,
 }, () => {console.log('DB connected')})
 
-app.use('/user', router);
+app.use('/user', express.json(), router);
+app.use('/admin', getAuthorization);
 app.listen(port, ()=>{console.log(`Running on port: ${port}`)});
 
 //password: FxkD3jcWR0Y7nASf;
