@@ -15,7 +15,7 @@ mongoose.connect('mongodb+srv://gabstoffel:FxkD3jcWR0Y7nASf@cluster0.kbmfuq3.mon
 }, () => {console.log('DB connected')})
 
 app.use('/user', express.json(), router);
-app.use('/admin', getAuthorization);
+app.use('/admin',express.json(), getAuthorization);
 app.listen(port, ()=>{console.log(`Running on port: ${port}`)});
 
 //password: FxkD3jcWR0Y7nASf;

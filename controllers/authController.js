@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-async function tokenVerification (req, res){
+async function tokenVerification (req, res, next){
     const token = req.header('validation-token');
     if(!token){return res.status(401).send('access denied')};
     try{
@@ -7,7 +7,7 @@ async function tokenVerification (req, res){
         req.user = verifiedToken;
         next();
     } catch(err){
-        res.send('access denied, you do not have a valid token');
+        res.status(400).send(err);
     }
 
 }

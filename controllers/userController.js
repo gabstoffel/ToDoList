@@ -29,7 +29,8 @@ const userController = {
             const passwordValidation =  await bcrypt.compare(req.body.password, selectedUser.password);
             if(passwordValidation){
                 const selectedUserID = selectedUser._id;
-                const userToken = jwt.sign({_id: selectedUserID}, process.env.TOKEN_SECRETKEY);
+                const selectedUserAdmin = selectedUser.admin;
+                const userToken = jwt.sign({_id: selectedUserID, admin: selectedUserAdmin}, process.env.TOKEN_SECRETKEY);
                 res.header('validation-token', userToken);
                 //é por meio do token que uma rota será protegida e determinado user terá ou não acesso a ela;
                 res.send();
