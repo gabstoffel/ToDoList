@@ -18,5 +18,3 @@ app.use('/user', express.json(), router);
 app.use('/admin',express.json(), getAuthorization);
 app.listen(port, ()=>{console.log(`Running on port: ${port}`)});
 
-//password: FxkD3jcWR0Y7nASf;
-//username: gabstoffel;
