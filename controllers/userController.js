@@ -37,6 +37,8 @@ const userController = {
                     {_id: selectedUserID, admin: selectedUserAdmin}, process.env.TOKEN_SECRETKEY
                 );
                 res.header('validation-token', userToken);
+                /* window.localStorage.setItem('token', JSON.stringify(userToken));; */
+                //guarda o valor do tokien no navegador. 
                 //é por meio do token que uma rota será protegida e determinado user terá ou não acesso a ela;
                 res.send();
             }else{
