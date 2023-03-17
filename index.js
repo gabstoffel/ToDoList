@@ -24,7 +24,8 @@ mongoose.connect('mongodb+srv://gabstoffel:FxkD3jcWR0Y7nASf@cluster0.kbmfuq3.mon
 
 
 //app.use(express.static(path.join(__dirname, "js")));
-app.use('/', express.static(path.join(__dirname, "public/publicViews")));
+app.use('/', express.static(path.join(__dirname, "public/register")));
+app.use('/login', express.static(path.join(__dirname, "public/login")))
 app.use('/user', express.json(), router);
 app.use('/admin',express.json(), getAuthorization);
 app.listen(port, ()=>{console.log(`Running on port: ${port}`)});
