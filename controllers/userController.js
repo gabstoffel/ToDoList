@@ -36,8 +36,17 @@ const userController = {
                 const userToken = jwt.sign(
                     {_id: selectedUserID, admin: selectedUserAdmin}, process.env.TOKEN_SECRETKEY
                 )
-                res.setHeader('validation-token', userToken);
+                const options = {
+                    secure: false,
+                    maxAge: 3600000,
+                    httpOnly: false,
+                }
+                /* res.header({'content-type': 'application/json'});
+                res.header('validation-token', userToken);
+                res.send(); */
+                res.cookie('token', userToken, options);
                 res.send();
+
             }else{
                 return res.status(400).send('wrong password, try again!');
             }

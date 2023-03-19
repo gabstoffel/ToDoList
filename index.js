@@ -25,9 +25,10 @@ mongoose.connect('mongodb+srv://gabstoffel:FxkD3jcWR0Y7nASf@cluster0.kbmfuq3.mon
 
 
 //app.use(express.static(path.join(__dirname, "js")));
+app.use(cookieParser());
 app.use('/', express.static(path.join(__dirname, "public/register")));
 app.use('/login', express.static(path.join(__dirname, "public/login")))
 app.use('/user', express.json(), router);
-app.use('/todolist',express.json(), getAuthorization);//está sendo usada?
+app.use('/todolist', getAuthorization);
 app.listen(port, ()=>{console.log(`Running on port: ${port}`)});
 

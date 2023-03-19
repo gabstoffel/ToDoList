@@ -18,28 +18,19 @@ window.addEventListener('DOMContentLoaded', (e)=> {
         try {
             fetch('http://localhost:3030/user/login', options).then((res) => {
                 if(res.status == 200){
-                    /* console.log(res.Headers['validation-token']); */
-                    localStorage.setItem('res', res);
-                    window.location.assign("http://localhost:3030/todolist");
-                    /* let info = {
+                    window.location.assign("http://localhost:3030/todolist")
+                    let info = {
                         method: "GET",
                         headers: new Headers({
                             'content-type':'application/json',
-                            'validation-token': JSON.stringify(localStorage.getItem('res')),
                         }),
-
+                        credentials: 'include',
                     }
                     try{
                         fetch('http://localhost:3030/todolist', info)
-                        {
-                            headers: {
-                                'content-type': 'application/json',
-                                'validation-token': JSON.stringify(localStorage.getItem('token')),
-                            }
-                        } 
                     } catch (err){
                         console.log(err);
-                    } */
+                    }
                 } 
             })
         } catch (err){

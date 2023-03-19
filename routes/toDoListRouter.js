@@ -7,6 +7,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const getAuthorization = express.Router();
 getAuthorization.get('/', tokenVerification, (req, res)=> {
-    res.send('ToDo list')
+    if(req.user){
+        res.send('accces')
+    }else{
+        res.send('you have to log in first');
+    }
 });
 export default getAuthorization;
