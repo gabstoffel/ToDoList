@@ -29,6 +29,6 @@ app.use(cookieParser());
 app.use('/', express.static(path.join(__dirname, "public/register")));
 app.use('/login', express.static(path.join(__dirname, "public/login")))
 app.use('/user', express.json(), router);
-app.use('/todolist', getAuthorization);
+app.use('/todolist', getAuthorization, express.static(path.join(__dirname, 'public/ToDoList')));
 app.listen(port, ()=>{console.log(`Running on port: ${port}`)});
 
