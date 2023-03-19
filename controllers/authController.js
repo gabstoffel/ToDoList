@@ -4,8 +4,9 @@ async function tokenVerification (req, res, next){
     if(!token){return res.status(401).send('access denied')};
     try{
         const verifiedToken = jwt.verify(token, process.env.TOKEN_SECRETKEY);
+        console.log(token);
         req.user = verifiedToken;
-        next();
+        next()
     } catch(err){
         res.status(400).send(err);
     }

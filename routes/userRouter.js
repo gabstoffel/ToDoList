@@ -4,3 +4,4 @@ const router = express.Router();
 router.post('/register', express.json(), userController.register);
 router.post('/login', express.json(), userController.login);
 export default router;
+

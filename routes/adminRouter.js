@@ -1,4 +1,4 @@
-import express from "express";
+/* import express from "express";
 import tokenVerification from '../controllers/authController.js';
 const getAuthorization = express.Router();
 getAuthorization.get('/', tokenVerification, (req, res) => {
@@ -8,4 +8,4 @@ getAuthorization.get('/', tokenVerification, (req, res) => {
                 res.status(401).send('access denied, you are not an admin');
         }
 })
-export default getAuthorization;
+export default getAuthorization; */
