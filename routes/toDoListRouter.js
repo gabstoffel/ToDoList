@@ -1,16 +1,9 @@
+
 import express from 'express';
-import tokenVerification from '../controllers/authController.js';
-import userController from '../controllers/userController.js'
-import path from 'path';
-import { fileURLToPath } from 'url';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const getAuthorization = express.Router();
-getAuthorization.get('/', tokenVerification, (req, res, next)=> {
-    if(req.user){
-        next();
-    }else{
-        res.send('you have to log in first');
-    }
-});
-export default getAuthorization;
+import taskController from '../controllers/taskController.js';
+const todolist = express.Router();
+todolist.post('new', taskController.newTask);
+todolist.get('all', taskController.getAll);
+todolist.delete('delete', taskController.delTask);
+
+export default todolist;

@@ -1,6 +1,7 @@
 import express from 'express';
 import router from './routes/userRouter.js';
-import getAuthorization from './routes/toDoListRouter.js';
+import getAuthorization from './routes/getAuthorization.js';
+import todolist from './routes/toDoListRouter.js';
 import mongoose from 'mongoose';
 import * as dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
@@ -30,5 +31,6 @@ app.use('/', express.static(path.join(__dirname, "public/register")));
 app.use('/login', express.static(path.join(__dirname, "public/login")))
 app.use('/user', express.json(), router);
 app.use('/todolist', getAuthorization, express.static(path.join(__dirname, 'public/ToDoList')));
+app.use('/todolist', todolist);
 app.listen(port, ()=>{console.log(`Running on port: ${port}`)});
 
