@@ -2,8 +2,8 @@
 import express from 'express';
 import taskController from '../controllers/taskController.js';
 const todolist = express.Router();
-todolist.post('new', taskController.newTask);
-todolist.get('all', taskController.getAll);
-todolist.delete('delete', taskController.delTask);
+todolist.post('/new', taskController.newTask);
+todolist.get('/all', taskController.getAll);
+todolist.delete('/delete', taskController.delTask);
 
 export default todolist;

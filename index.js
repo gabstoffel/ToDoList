@@ -11,14 +11,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
 const port = process.env.PORT || 3030;
-const URL = process.env.MONGODB_CONNECTION_URL;
-
-
+const DB_URL = process.env.MONGODB_CONNECTION_URL;
 dotenv.config();
 
 //banco:
 mongoose.set('strictQuery', false)
-mongoose.connect('mongodb+srv://gabstoffel:FxkD3jcWR0Y7nASf@cluster0.kbmfuq3.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://stoffelg015:YaIEIbWhuIq6FWE6@gab.1jqgqth.mongodb.net/?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }, () => {console.log('DB connected')})
@@ -31,6 +29,6 @@ app.use('/', express.static(path.join(__dirname, "public/register")));
 app.use('/login', express.static(path.join(__dirname, "public/login")))
 app.use('/user', express.json(), router);
 app.use('/todolist', getAuthorization, express.static(path.join(__dirname, 'public/ToDoList')));
-app.use('/todolist', todolist);
+app.use('/todolist', express.json(), todolist);
 app.listen(port, ()=>{console.log(`Running on port: ${port}`)});
 

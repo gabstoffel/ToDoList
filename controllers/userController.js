@@ -2,11 +2,11 @@ import mongoose from "mongoose";
 import User from "../models/User.js";
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import registerValidate from "./validate.js";
+import validate from "./validate.js";
 
 const userController = {
     register: async (req, res) => {
-        const {error} = registerValidate(req.body);
+        const {error} = validate.registerValidate(req.body);
         if(error){return res.status(400).send(error.message)};
         const selectedUser = await User.findOne({email:req.body.email});
         if(selectedUser){
