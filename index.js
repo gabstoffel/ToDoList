@@ -16,7 +16,7 @@ dotenv.config();
 
 //banco:
 mongoose.set('strictQuery', false)
-mongoose.connect('mongodb+srv://stoffelg015:YaIEIbWhuIq6FWE6@gab.1jqgqth.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://gabstoffel:FxkD3jcWR0Y7nASf@cluster0.kbmfuq3.mongodb.net/?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }, () => {console.log('DB connected')})

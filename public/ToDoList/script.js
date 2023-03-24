@@ -1,67 +1,118 @@
-document.addEventListener('DOMContentLoaded', () => {
-    updatePosts();
+let profileLink = document.getElementById('profileLink');
+let profile = document.getElementById('profile')
+profile.style.display = 'none';
+profileLink.addEventListener('click', ()=>{
+
+    profile.style.display = 'block';
+
+
 })
-function updatePosts(){
-    let promise = fetch('http://localhost:3030/todolist/all').then((res) =>{
-        return res.json();
-    })
-    promise.then((posts) => {
-        let postElements = '';
-        posts.forEach((post) => {
-            let postElement = `    
-                <div id=${post._id} class="card mb-2">
-                    <div class="card-header">
-                        <h5 class="card-title">${post.title}</h5>
-                        <button onclick="deletePost('${post._id}')" "type="button" class="btn-close" aria-label="Close"></button>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-text">${post.description}</div>
-                    </div>
-                </div>
-            `
-            return postElements += postElement;
-        })
-        document.getElementById('posts').innerHTML = postElements;
-    })
+/* const formTask = document.getElementById('addTask');
+const task = document.getElementById('task');
+
+formTask.addEventListener('submit', ( event ) => {
+  if(task.value != ''){
+    addCard(task.value);
+    task.value = '';
+  }
+  event.preventDefault();
+}) */
+
+/* function addCard(value) {
+  const todo  = document.querySelector('#todo');
+  const newCard = document.createElement("div");
+  newCard.classList.add('card');
+  newCard.draggable = true;
+  newCard.innerHTML = `
+    <div class="status todo"></div> 
+    <div class="content"><p>`+ value +`</p></div>
+  `;
+  newCard.addEventListener( 'dragstart', dragStart );
+  newCard.addEventListener( 'drag', drag );
+  newCard.addEventListener( 'dragend', dragEnd );
+  todo.appendChild(newCard);
+} */
+
+const cards = document.querySelectorAll('.card');
+const dropZones = document.querySelectorAll('.dropZone');
+
+cards.forEach( (card) => {
+  card.addEventListener( 'dragstart', dragStart );
+  card.addEventListener( 'drag', drag );
+  card.addEventListener( 'dragend', dragEnd );
+})
+
+function dragStart() {
+  dropZones.forEach( dropZone => dropZone.classList.add('highlight'));
+  this.classList.add('dragging');
+
+  switch(this.parentElement.id) {
+    case 'todo':
+      this.firstElementChild.classList.remove('todo');
+      break;
+    case 'doing':
+      this.firstElementChild.classList.remove('doing');
+      break;
+    case 'done':
+      this.firstElementChild.classList.remove('done');
+      break;
+    case 'garbage':
+      this.firstElementChild.classList.remove('todo');
+      break;
+    default:
+      break;
+  }
 }
-function newPost(){
-    let title = document.getElementById('title').value;
-    let description = document.getElementById('description').value;
-    if (title.length == 0 || description.length == 0) {
-        alert('you need to input a title and a description to your task!');
-    }else{
-        let post = {title, description};
-        let options = {
-            method: "POST",
-            headers: new Headers({'content-type': 'application/json'}),
-            body: JSON.stringify(post),
-        }
-        fetch('http://localhost:3030/todolist/new', options).then((res) => {
-            updatePosts();
-            document.getElementById('title').value = '';
-            document.getElementById('description').value = '';
-        })
-    }
+
+function drag() {
+  
 }
-function deletePost(post){
-    const task = document.getElementById(post);
-    task.hidden = true;
-    const jsonID = {
-        _id: post,
-    }
-    const options = {
-        method: "DELETE",
-        headers: new Headers({
-            'content-type': 'application/json'
-        }),
-        body: JSON.stringify(jsonID),
-    }
-    try{
-        fetch('http://localhost:3030/todolist/delete', options).then((res) => {
-            updatePosts();
-            console.log(res);
-        })
-    } catch(err){
-        console.log(err);
-    }
+
+function dragEnd() {
+  dropZones.forEach( dropZone => dropZone.classList.remove('highlight'));
+  this.classList.remove('dragging');
+  
+  switch(this.parentElement.id) {
+    case 'todo':
+      this.firstElementChild.classList.add('todo');
+      break;
+    case 'doing':
+      this.firstElementChild.classList.add('doing');
+      break;
+    case 'done':
+      this.firstElementChild.classList.add('done');
+      break;
+    case 'garbage':
+      this.parentElement.removeChild(this);
+      break;
+    default:
+      break;
+  }
+}
+
+dropZones.forEach( dropZone => {
+  dropZone.addEventListener( 'dragenter', dragEnter );
+  dropZone.addEventListener( 'dragover', dragOver );
+  dropZone.addEventListener( 'dragleave', dragLeave );
+  dropZone.addEventListener( 'drop', drop);
+})
+
+function dragEnter() {
+
+}
+
+function dragOver() {
+  this.classList.add('over');
+
+  const cardBeingDragged = document.querySelector('.dragging');
+ 
+  this.appendChild(cardBeingDragged);
+}
+
+function dragLeave() {
+  this.classList.remove('over');
+}
+
+function drop() {
+  this.classList.remove('over');
 }

@@ -1,0 +1,119 @@
+#profileLink{
+    cursor: pointer;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body{
+    font-family: 'Nunito', sans-serif;
+  
+    background-color: #130f0d;
+    color: #fff;
+  
+    width: 100vw;
+    min-height: 100vh;
+    padding: 30px 30px;
+  
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  
+    overflow-x: hidden;
+  }
+  
+  .boards{
+    width: 100%;
+    min-height: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .board{
+    width: 33%;
+    min-height: 100%;
+    margin: 0 1rem;
+    background-color: #352357d7;
+    border: 1rem solid #6c523411;
+    border-radius: 0.7rem;
+  }
+  
+  #doing{
+    margin: 0 0;
+  }
+  
+  .board h2{
+    text-align: center;
+    padding: 30px 15px 15px 15px;
+    color: #ffffffcc;
+  }
+  
+  .dropZone{
+    padding: 1rem;
+    width: 100%;
+    height: calc(100% - 5rem);
+  
+    transition: .2s;
+  }
+  
+  .card{
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+    margin-bottom: 15px;
+    background-color: #1a1a1c;
+    box-shadow: 0 0.6rem 0.6rem -1rem #7db8ffcc;
+    border-radius: 0.6rem;
+    font-weight: 600;
+    font-size: 1rem;
+    word-wrap: break-word;
+  
+    transition: .2s;
+  }
+  
+  .card:hover{
+    cursor: move;
+  }
+  
+  .status{
+    width: 10%;
+    height: 0.7rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    background-color: #fd951fcc;
+  }
+  
+  .todo{
+    background-color: red;
+  }
+  
+  .doing{
+    background-color: yellow;
+  }
+  
+  .done{
+    background-color: green;
+  }
+  
+  .highlight{
+    background-color: #df951f08;
+  }
+  
+  .dragging{
+    cursor: move;
+    opacity: 0.1;
+  }
+  
+  .over{
+    background-color: #4ccd3711;
+  }
+  
+
+  .dropZone{
+    height: 100%;
+  }
+  
