@@ -1,4 +1,4 @@
-let profileLink = document.getElementById('profileLink');
+/* let profileLink = document.getElementById('profileLink');
 let profile = document.getElementById('profile')
 profile.style.display = 'none';
 profileLink.addEventListener('click', ()=>{
@@ -6,7 +6,7 @@ profileLink.addEventListener('click', ()=>{
     profile.style.display = 'block';
 
 
-})
+}) */
 /* const formTask = document.getElementById('addTask');
 const task = document.getElementById('task');
 

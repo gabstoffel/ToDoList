@@ -23,69 +23,13 @@
             </div>
             <div class="container current-tasks mt-3">
                 <h4>Your current tasks:</h4>
-                <div id="posts">
-                </div>
+                <div id="posts"></div>
             </div>             
         </div>
-        <div class="ccontainer">
-            <h5 id="profileLink">My Profile</h5>
-            <div id="profile" class="container">
-                <img id="profileIcon" src="">
-                <div id="name">Gabriel Stoffel</div>
-                <div id="doneTasks">Total Tasks: 100</div>
-                <div id="todoTasks">Total Tasks To DO: 87</div>
+        <div class="container">
+            <h5 id="profileLink" onclick="getProfile()">My Profile</h5>
+            <div id="profile" class="container"></div>
         </div>
-        <div class="boards">
-            <!-- Quadro de tarefas para fazer -->
-            <div class="board">
-              <h2>TO-DO</h2>
-              <div class="dropZone" id="todo">
-                <!-- Cartões de tarefas -->
-                <div class="card" draggable="true">
-                  <div class="status todo"></div>
-                  <div class="content">ToDo Task</div>
-                </div>
-              </div>
-            </div>
-            <!-- Quadro de tarefas sendo feitas -->
-            <div class="board">
-              <h2>DOING</h2>
-              <div class="dropZone" id="doing">
-                <div class="card" draggable="true">
-                  <div class="status doing"></div>
-                  <div class="content">You are doing this task</div>
-                </div>
-                
-              </div>
-            </div>
-            <!-- Quadro de tarefas já feitas -->
-            <div class="board">
-              <h2>DONE!</h2>
-              <div class="dropZone" id="done">
-                <div class="card" draggable="true">
-                  <div class="status done"></div>
-                  <div class="content">This task was done</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- <div class="footer">
-            <div class="task">
-              <h2><label for="task">ADD TASK</label></h2>
-              <form id="addTask" action="POST">
-                <input id="task" name="task" type="text" autocomplete="off">
-                <button type="submit"><img src="./icons/plus.svg" alt="Add task" /></button>
-              </form>
-            </div> -->
-            <!-- <div class="info">
-              <h1 class="logo">NAB<br/>NAK</h1>
-              <p class="slogan">a simple<br/>kanban board</p>
-            </div> -->
-            <!-- <div class="garbage">
-              <h2>Garbage</h2>
-              <div class="dropZone" id="garbage">
-            </div> -->
-          </div>
         <div class="footer"></div>
     </div>
     <script src="./script.js"></script>

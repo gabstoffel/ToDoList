@@ -41,10 +41,8 @@ const userController = {
                     maxAge: 3600000,
                     httpOnly: false,
                 }
-                /* res.header({'content-type': 'application/json'});
-                res.header('validation-token', userToken);
-                res.send(); */
                 res.cookie('token', userToken, options);
+                res.cookie('userID', selectedUserID, options);
                 res.send();
 
             }else{
@@ -54,5 +52,13 @@ const userController = {
             return res.status(400).send('You need to register first!');
         }
     },
+    userInfo: async (req, res) => {
+        const userID = req.cookies.userID;
+        const userinfo = await User.findOne({_id: userID});
+        const info = {
+            name: userinfo.name
+        }
+        res.send(info);
+    }
 }
 export default userController;

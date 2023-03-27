@@ -1,12 +1,10 @@
-import mongoose from "mongoose";
-import task from "../models/Task.js";
-import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
+
 import validate from "./validate.js";
 import Task from "../models/Task.js";
 
 const taskController = {
     newTask: async (req, res) => {
+        const userID = req.cookies.userID;
         const {error} = validate.taskValidate(req.body);
         if(error){res.status(400).send(error.message)}
         const title = req.body.title;
@@ -14,6 +12,7 @@ const taskController = {
         const task = new Task ({
             title: title,
             description: description,
+            userID:  userID
         })
         try{
             const newtask = await task.save();
@@ -21,7 +20,8 @@ const taskController = {
         } catch(err){res.send(err)}  
     },
     getAll: async (req, res) => {
-        Task.find().then((task) => {
+        const userID = req.cookies.userID;
+        Task.find({userID: userID}).then((task) => {
             res.send(task);
         })
     },
@@ -38,6 +38,19 @@ const taskController = {
         } catch (err){
             res.send(err);
         }
+    },
+    userInfo: async (req, res) => {
+        try{
+            const userID = req.cookies.userID;
+            let totalTasks = await Task.count({userID: userID});
+            totalTasks.toString();
+            let userInfo = {
+                totalTasks,
+            }
+            res.send(userInfo);
+        } catch (err){
+            console.log(err);
+        }     
     }
 }
 export default taskController;

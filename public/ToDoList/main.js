@@ -1,8 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
     updatePosts();
+    getProfile();
 })
 function updatePosts(){
-    let promise = fetch('http://localhost:3030/todolist/all').then((res) =>{
+    let options = {
+        method: "GET",
+        headers: new Headers({'content-type': 'application/json'}),
+        credentials: 'include',
+    }
+    let promise = fetch('http://localhost:3030/todolist/all', options).then((res) =>{
         return res.json();
     })
     promise.then((posts) => {
@@ -18,7 +24,7 @@ function updatePosts(){
                         <div class="card-text">${post.description}</div>
                     </div>
                 </div>
-            `
+            ` 
             return postElements += postElement;
         })
         document.getElementById('posts').innerHTML = postElements;
@@ -34,6 +40,7 @@ function newPost(){
         let options = {
             method: "POST",
             headers: new Headers({'content-type': 'application/json'}),
+            credentials: 'include',
             body: JSON.stringify(post),
         }
         fetch('http://localhost:3030/todolist/new', options).then((res) => {
@@ -64,4 +71,33 @@ function deletePost(post){
     } catch(err){
         console.log(err);
     }
+}
+function getProfile(){
+    let options = {
+        method: "GET",
+        headers: new Headers({'content-type': 'application/json'}),
+        credentials: 'include',
+    }
+    let promise = fetch('http://localhost:3030/user/userinfo', options).then((res) => {
+        return res.json();
+    }).then((user) => {
+        var userInfo = `
+            <div id="name">${user.name}</div>
+        `
+        return userInfo;
+    })
+    promise.then(
+        fetch('http://localhost:3030/todolist/userinfo', options).then((res) =>{
+            return res.json();
+        }).then((user) => {
+            userInfo += `
+                <div id="doneTasks">${user.totalTasks}</div>
+                <div id="todoTasks">${user.doneTasks}</div>
+            `
+            return userInfo;
+        })
+    )
+    console.log(userInfo);
+    let userProfile = document.getElementById('profile')
+    userProfile.innerHTML = userInfo;
 }
