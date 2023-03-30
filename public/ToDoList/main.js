@@ -16,7 +16,7 @@ function updatePosts(){
         posts.forEach((post) => {
             let postElement = `    
                 <div id=${post._id} class="card mb-2">
-                    <div class="card-header">
+                    <div class="card-header" draggable="true"h>
                         <h5 class="card-title">${post.title}</h5>
                         <button onclick="deletePost('${post._id}')" "type="button" class="btn-close" aria-label="Close"></button>
                     </div>
