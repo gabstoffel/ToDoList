@@ -1,4 +1,7 @@
-
+body{
+  margin: 0;
+  padding: 0;
+}
 .grid{
   display: grid;
   grid-template-columns: auto;
@@ -10,4 +13,38 @@
   flex-wrap: nowrap;
   justify-content: space-around;
   
+}
+.menu{
+  background:  #3c3d3ded;
+  height: 7vh;
+}
+
+.kanban-board {
+  display: flex;
+  justify-content: space-between;
+}
+
+.kanban-column {
+  flex: 1;
+  margin: 0 10px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+.column-title {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.task-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.task {
+  background-color: #fff;
+  padding: 5px;
+  margin-bottom: 5px;
+  border-radius: 5px;
 }
