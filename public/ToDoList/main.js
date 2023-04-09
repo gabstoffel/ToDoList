@@ -18,7 +18,7 @@ function updatePosts(){
                 <div id=${post._id} class="card mb-2">
                     <div class="card-header" draggable="true"h>
                         <h5 class="card-title">${post.title}</h5>
-                        <button onclick="deletePost('${post._id}')" "type="button" class="btn-close" aria-label="Close"></button>
+                        <img id="binIcon" src="./icons/binIcon.png" onclick="deletePost('${post._id}')">
                     </div>
                     <div class="card-body">
                         <div class="card-text">${post.description}</div>

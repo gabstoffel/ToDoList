@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap');
 body{
   margin: 0;
   padding: 0;
+  font-family: 'Comic Neue', cursive;
+  color: whitesmoke;
   background: linear-gradient(to right, #3c3d3d, #00BFFF);
   box-sizing: border-box;
   background-color: #2e2d33;
@@ -100,30 +103,40 @@ textarea:focus, input:focus {
   flex-direction: column;
   width: 80%;
   border-radius: 0.4rem;
+  border-style: solid;
+  border-color: black;
+  border-width: 0.1rem;
   justify-content: flex-start;
   margin-top: 2rem;
+  margin-bottom: 2rem;
   padding-bottom: 1rem;
-  box-shadow: 0.1rem 0.1rem 1rem #4a4a4a;
+  box-shadow: 0.2rem 0.2rem 1rem #4a4a4a;
 }
 .card-header{
   display: flex;
   flex-direction: row;
-  background-color: #2e2d33;
   justify-content: space-between;
+  box-shadow: 0.1rem 0.1rem 0.1rem black;
+  border-radius: 0.2rem;
 
 }
-button{
-
+#binIcon, .card-title{
+  padding: 0.3rem;
+  margin: 0.3rem;
+  align-self: center;
+  color: whitesmoke;
+}
+#binIcon{
+  width: 40px;
+  height: 40px;
 }
 .card-body{
-
-}
-.card-text{
-
+  padding: 1rem;
 }
 /* <div id=${post._id} class="card mb-2">
                     <div class="card-header" draggable="true"h>
                         <h5 class="card-title">${post.title}</h5>
+                        <img src="" onclick="deletePost('${post._id}')">
                         <button onclick="deletePost('${post._id}')" "type="button" class="btn-close" aria-label="Close"></button>
                     </div>
                     <div class="card-body">
