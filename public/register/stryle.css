@@ -32,6 +32,9 @@ body{
     border-radius: 2rem;   
     border: none;
     font-size: 1.0rem;
+    /* background-color: #4caf4f; */
+    background-color: #44fd4aa7;
+    color: whitesmoke;
 }
 #submitButton:hover{
     cursor: pointer;
