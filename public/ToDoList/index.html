@@ -4,58 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <link rel="stylesheet" href="./style.css">
     <title>ToDo List</title>
 </head>
 <body>
-    <div class="container grid">
+    <div class="container">
         <div class="menu">
             <!--<div id="profile" class="container">
                     <h5 id="profileLink" onclick="getProfile()">My Profile</h5>
                 </div>-->
-            Menu Bar: left:Profile, Right: BrandNAme
+            <div class="name">TaskBuddy</div>
+            <div class="profile">
+              <img src="./icons/profile.png">
+            </div>
         </div>
         <div class="tasks">
             <div class="container new-tasks mt-3">
-                <div class="container">
-                    <h4>Add a New Task!</h4>
-                    <input class="input" id="title" placeholder="Title">
-                    <input class="input" id="description" placeholder="Description">
-                    <div class="container-flex">
-                        <button onclick="newPost()">Add Task</button>
-                    </div>
-                </div>
-                <div class="container current-tasks mt-3">
-                    <h4>Your current tasks:</h4>
-                    <div id="posts"></div>
-                </div>             
+                  <div class="AddTasks">
+                      <img class="tasks-image" src="./icons/tLPSsEogVHZFyM9e-accept-tasks-pana.png">
+                      <div class="newTask">
+                        <h3>Add a New Task!</h3>
+                        <div class="tasksInput">
+                          <div class="inputs">
+                            <input class="input" id="title" placeholder="Title">
+                            <input class="input" id="description" placeholder="Description">
+                          </div>
+                          <img src="./icons/1665680.png" onclick="newPost()">
+                          <!-- button onclick="newPost()">Add Task</button> -->
+                        </div>
+                      </div>
+                  </div>             
             </div>
         </div>
-        
+        <div class="current-tasks">
+          <div class="current-tasks-text">
+            <h2>Your current tasks:</h2>
+          </div>
+          <div id="posts"></div>
+        </div> 
     </div>
-    <div class="kanban-board">
-        <div class="kanban-column">
-          <h2 class="column-title">To Do</h2>
-          <ul class="task-list">
-            <li class="task">Task 1</li>
-            <li class="task">Task 2</li>
-            <li class="task">Task 3</li>
-          </ul>
-        </div>
-        <div class="kanban-column">
-          <h2 class="column-title">In Progress</h2>
-          <ul class="task-list">
-            <li class="task">Task 4</li>
-            <li class="task">Task 5</li>
-          </ul>
-        </div>
-        <div class="kanban-column">
-          <h2 class="column-title">Done</h2>
-          <ul class="task-list">
-            <li class="task">Task 6</li>
-          </ul>
-        </div>
-      </div>
     <script src="./script.js"></script>
     <script src="./main.js"></script>
 </body>

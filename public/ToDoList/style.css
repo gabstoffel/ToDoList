@@ -1,50 +1,132 @@
 body{
   margin: 0;
   padding: 0;
-}
-.grid{
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto, auto;
-}
-
-.tasks{
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-  
+  background: linear-gradient(to right, #3c3d3d, #00BFFF);
+  box-sizing: border-box;
+  background-color: #2e2d33;
+  height: auto;
+  width: 100%;
 }
 .menu{
-  background:  #3c3d3ded;
-  height: 7vh;
-}
-
-.kanban-board {
+  width:100%;
+  height: 12vh;
+  background-color: #3c3d3d;
   display: flex;
   justify-content: space-between;
 }
-
-.kanban-column {
-  flex: 1;
-  margin: 0 10px;
-  padding: 10px;
-  background-color: #f9f9f9;
-  border-radius: 5px;
+.name, .profile{
+  padding: 1rem;
+  margin: 1rem;
+  align-self: center;
+  color: whitesmoke;
 }
-
-.column-title {
+.profile{
+  display: flex;
+  justify-content: flex-end;
+}
+img{
+  width: 8%;
+}
+.AddTasks{
+  display: flex;
+  height: 60vh;
+  align-items: center;
+  justify-self: center;
   text-align: center;
-  margin-bottom: 10px;
+  margin: 1rem;
+  box-shadow: 0.4rem 0.4rem 1.5rem #4a4a4a;
+  border-radius: 0.5rem;
 }
+.tasksInput{
+  height: 20vh;
+  width: 50%;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  border-radius: 2rem;
+  background-color: #3c3d3d;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0.1rem 0.1rem 1rem #4a4a4a;
 
-.task-list {
-  list-style-type: none;
-  padding: 0;
 }
+::placeholder{
+  color:aliceblue;
+}
+input{
+  padding: 0.5rem;
+  border-style: none;
+  width: 90%;
+  background-color: #3c3d3dcb;
+  color: whitesmoke;
+}
+textarea:focus, input:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
+}
+.tasks-image{
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
 
-.task {
-  background-color: #fff;
-  padding: 5px;
-  margin-bottom: 5px;
-  border-radius: 5px;
+
 }
+.newTask{
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: space-between;
+  color: whitesmoke;
+}
+.tasksInput{
+  align-self: center;
+}
+.current-tasks{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#posts{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.card{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  border-radius: 0.4rem;
+  justify-content: flex-start;
+  margin-top: 2rem;
+  padding-bottom: 1rem;
+  box-shadow: 0.1rem 0.1rem 1rem #4a4a4a;
+}
+.card-header{
+  display: flex;
+  flex-direction: row;
+  background-color: #2e2d33;
+  justify-content: space-between;
+
+}
+button{
+
+}
+.card-body{
+
+}
+.card-text{
+
+}
+/* <div id=${post._id} class="card mb-2">
+                    <div class="card-header" draggable="true"h>
+                        <h5 class="card-title">${post.title}</h5>
+                        <button onclick="deletePost('${post._id}')" "type="button" class="btn-close" aria-label="Close"></button>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-text">${post.description}</div>
+                    </div>
+                </div> */
