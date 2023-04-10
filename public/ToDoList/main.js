@@ -21,7 +21,7 @@ function updatePosts(){
                         <img id="binIcon" src="./icons/binIcon.png" onclick="deletePost('${post._id}')">
                     </div>
                     <div class="card-body">
-                        <div class="card-text">${post.description}</div>
+                        <p class="card-text">${post.description}</p>
                     </div>
                 </div>
             ` 
