@@ -23,6 +23,9 @@ body{
   align-self: center;
   color: whitesmoke;
 }
+#profileIcon:hover{
+  cursor: pointer;
+}
 .profile{
   display: flex;
   justify-content: flex-end;
@@ -133,6 +136,25 @@ textarea:focus, input:focus {
 .card-body{
   padding: 1rem;
 }
+#profileInfo{
+  background-color: white;
+  color: black;
+  border-radius: 1rem;
+  width: 30%;
+  height: 90%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+
+
+
+
+
 /* <div id=${post._id} class="card mb-2">
                     <div class="card-header" draggable="true"h>
                         <h5 class="card-title">${post.title}</h5>
@@ -143,3 +165,4 @@ textarea:focus, input:focus {
                         <div class="card-text">${post.description}</div>
                     </div>
                 </div> */
+

@@ -94,10 +94,10 @@ function getProfile(){
                 <div id="doneTasks">${user.totalTasks}</div>
                 <div id="todoTasks">${user.doneTasks}</div>
             `
-            return userInfo;
+            console.log(userInfo);
+            let userProfile = document.getElementById('profile')
+            userProfile.innerHTML = userInfo;
         })
     )
-    console.log(userInfo);
-    let userProfile = document.getElementById('profile')
-    userProfile.innerHTML = userInfo;
+   
 }
