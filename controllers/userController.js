@@ -58,6 +58,7 @@ const userController = {
         const info = {
             name: userinfo.name
         }
+        console.log(info);
         res.send(info);
     }
 }

@@ -73,30 +73,33 @@ function deletePost(post){
     }
 }
 function getProfile(){
+    let userInfo = '';
     let options = {
         method: "GET",
         headers: new Headers({'content-type': 'application/json'}),
         credentials: 'include',
     }
-    let promise = fetch('http://localhost:3030/user/userinfo', options).then((res) => {
+    fetch('http://localhost:3030/user/userinfo', options).then((res) => {
         return res.json();
     }).then((user) => {
-        var userInfo = `
-            <div id="name">${user.name}</div>
+        userInfo += `
+            <div id="userName">@${user.name}</div>
         `
-        return userInfo;
-    })
-    promise.then(
+        /* document.getElementById('info').innerHTML = userInfo; */
+    }).then(
         fetch('http://localhost:3030/todolist/userinfo', options).then((res) =>{
             return res.json();
         }).then((user) => {
+            if(user.doneTasks === undefined){
+                user.doneTasks = 'You have not completed any task!'
+            }
             userInfo += `
-                <div id="doneTasks">${user.totalTasks}</div>
-                <div id="todoTasks">${user.doneTasks}</div>
+                <div id="totalTasks">
+                    <img id="tasksIcon" src="./icons/tasksTodo.png">
+                    <p>Total Tasks: ${user.totalTasks}</p>
+                </div>
             `
-            console.log(userInfo);
-            let userProfile = document.getElementById('profile')
-            userProfile.innerHTML = userInfo;
+            document.getElementById('info').innerHTML = userInfo;
         })
     )
    
