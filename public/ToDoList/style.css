@@ -141,8 +141,8 @@ textarea:focus, input:focus {
   background-color: #4a4a4a;
   color: whitesmoke;
   border-radius: 1rem;
-  width: 30%;
-  height: 90%;
+  width: 20%;
+  height: 60%;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -150,6 +150,7 @@ textarea:focus, input:focus {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  box-shadow: 0.1rem 0.1rem 0.3rem black;
 }
 #profileImage{
   width: 7rem;
@@ -158,6 +159,7 @@ textarea:focus, input:focus {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
   align-content: space-between;
 }
 #tasksIcon{
@@ -169,6 +171,19 @@ textarea:focus, input:focus {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+#backButton{
+  width: 40%;
+  height: 8%;
+  background-color: #00bfffae;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0.1rem 0.1rem 0.3rem black;
+}
+#backButton:hover{
+  box-shadow: 0.1rem 0.1rem 0.1rem black;
+  cursor: pointer;
 }
 
 
