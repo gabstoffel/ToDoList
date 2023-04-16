@@ -3,20 +3,21 @@ import router from './routes/userRouter.js';
 import getAuthorization from './routes/getAuthorization.js';
 import todolist from './routes/toDoListRouter.js';
 import mongoose from 'mongoose';
-import * as dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import path from 'path';
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
-const port = process.env.PORT || 3030;
-const DB_URL = process.env.MONGODB_CONNECTION_URL;
-dotenv.config();
+import * as dotenv from 'dotenv'
+dotenv.config()
+const port = process.env.PORT;
+const MONGODB_CONNECTION_URL = process.env.MONGODB_CONNECTION_URL;
+//'mongodb+srv://gabstoffel:FxkD3jcWR0Y7nASf@cluster0.kbmfuq3.mongodb.net/?retryWrites=true&w=majority
 
 //banco:
 mongoose.set('strictQuery', false)
-mongoose.connect('mongodb+srv://gabstoffel:FxkD3jcWR0Y7nASf@cluster0.kbmfuq3.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://stoff:Y4crS48e2crceJvP@cluster0.kbmfuq3.mongodb.net/?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }, () => {console.log('DB connected')})
