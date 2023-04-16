@@ -12,20 +12,20 @@
   <a href="#closed-book-licença">Licença</a>
 </p>
 
-
 ## :clipboard: Sobre o Projeto:
 
 <br>
 <p text-align="justify">   
 
-        Nova versão de um projeto já existente de uma ToDo List. Assim, foram acrescentadas diversas funcionalidades e integrações. O 
-      projeto agora possui integração com o banco de dados MongoDB e funcionalidades como login e registro de usuário, usando a 
-      tecnologia JWT. 
+        Nova versão de um projeto já existente de uma ToDo List. Assim, foram acrescentadas diversas
+        funcionalidades e integrações. O projeto agora possui integração com o banco de dados MongoDB
+        e funcionalidades como login e registro de usuário, usando a tecnologia JWT. 
   
 <br>
 </p>
 <br>
-# :computer: Tecnologias utilizadas:
+
+## :computer: Tecnologias utilizadas:
 
 O projeto foi desenvolvido utilizando as seguintes tecnologias:
 
@@ -50,8 +50,6 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
    <img src="">
    <br>
 </div>
-
- 
 
 ## :closed_book: Licença:
 
