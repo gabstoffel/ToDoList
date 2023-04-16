@@ -1,4 +1,3 @@
-
 import validate from "./validate.js";
 import Task from "../models/Task.js";
 const taskController = {
@@ -28,9 +27,7 @@ const taskController = {
         const docID = req.body._id;
         try {
             if(docID != ''){
-                console.log(req.body._id);
                 const doc = await Task.findById(req.body._id);
-                console.log(doc);
                 await Task.findByIdAndDelete(docID);
                 res.send();
             }

@@ -66,7 +66,6 @@ function deletePost(post){
     try{
         fetch('http://localhost:3030/todolist/delete', options).then((res) => {
             updatePosts();
-            console.log(res);
         })
     } catch(err){
         console.log(err);

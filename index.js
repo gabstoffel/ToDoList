@@ -12,8 +12,6 @@ const app = express();
 import * as dotenv from 'dotenv'
 dotenv.config()
 const port = process.env.PORT;
-const MONGODB_CONNECTION_URL = process.env.MONGODB_CONNECTION_URL;
-//banco:
 mongoose.set('strictQuery', false)
 mongoose.connect(process.env.MONGODB_CONNECTION_URL, {
     useNewUrlParser: true,

@@ -2,7 +2,6 @@ import User from "../models/User.js";
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import validate from "./validate.js";
-
 const userController = {
     register: async (req, res) => {
         const {error} = validate.registerValidate(req.body);
@@ -29,11 +28,9 @@ const userController = {
             const passwordValidation =  await bcrypt.compare(req.body.password, selectedUser.password);
             if(passwordValidation){
                 const selectedUserID = selectedUser._id;
-                const selectedUserAdmin = selectedUser.admin;
                 const userToken = jwt.sign(
-                    {_id: selectedUserID, admin: selectedUserAdmin},
-                    process.env.TOKEN_SECRETKEY,
-                    {expiresIn: 3600000}
+                    {_id: selectedUserID},
+                    process.env.TOKEN_SECRETKEY
                 )
                 const options = {
                     secure: false,

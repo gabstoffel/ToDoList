@@ -13,7 +13,6 @@ window.addEventListener('DOMContentLoaded', (e)=> {
             headers: new Headers({'content-type':'application/json'}),
             body: JSON.stringify(loginInformation),
         }
-        console.log(JSON.stringify(loginInformation));
         try {
             fetch('http://localhost:3030/user/login', options).then((res) => {
                 if(res.status == 200){

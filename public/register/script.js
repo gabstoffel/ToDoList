@@ -15,7 +15,6 @@ window.addEventListener('DOMContentLoaded', (event) =>{
             headers: new Headers({'content-type': 'application/json'}),
             body: JSON.stringify(registerInformarion),
         }
-        console.log(JSON.stringify(registerInformarion));
         try {
             fetch('http://localhost:3030/user/register', options).then(
                 (res) => {
