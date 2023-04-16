@@ -1,5 +1,4 @@
 window.addEventListener('DOMContentLoaded', (e)=> {
-
     let form = document.getElementById('user_form');
     form.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -37,5 +36,4 @@ window.addEventListener('DOMContentLoaded', (e)=> {
             console.log(err);
         }
     })
-
 })

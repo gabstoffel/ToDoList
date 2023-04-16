@@ -1,5 +1,4 @@
 import joi from '@hapi/joi';
-
 const validate = {
     registerValidate: (data) => {
         const schema = joi.object({
@@ -17,5 +16,4 @@ const validate = {
         return schema.validate(data);
     }
 }
-
 export default validate;

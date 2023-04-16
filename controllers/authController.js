@@ -1,7 +1,5 @@
 import jwt from 'jsonwebtoken';
-import cookieParser from 'cookie-parser';
 async function tokenVerification (req, res, next){
-    /* const token = req.header('validation-token'); */
     const token = req.cookies.token;
     console.log(token)
     if(!token){return res.status(401).send('access denied')};
@@ -12,6 +10,5 @@ async function tokenVerification (req, res, next){
     } catch(err){
         res.status(400).send(err);
     }
-
 }
 export default tokenVerification;

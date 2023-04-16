@@ -1,7 +1,6 @@
 
 import validate from "./validate.js";
 import Task from "../models/Task.js";
-
 const taskController = {
     newTask: async (req, res) => {
         const userID = req.cookies.userID;

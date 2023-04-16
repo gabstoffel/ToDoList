@@ -85,7 +85,6 @@ function getProfile(){
         userInfo += `
             <div id="userName">@${user.name}</div>
         `
-        /* document.getElementById('info').innerHTML = userInfo; */
     }).then(
         fetch('http://localhost:3030/todolist/userinfo', options).then((res) =>{
             return res.json();
@@ -102,5 +101,4 @@ function getProfile(){
             document.getElementById('info').innerHTML = userInfo;
         })
     )
-   
 }

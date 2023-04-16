@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import User from "../models/User.js";
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
@@ -16,8 +15,6 @@ const userController = {
             name: req.body.name,
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password),
-            //gera uma senha criptografada, a ser gravada no banco;
-            //usa como padrão salt = 10;
         })
         try{
             const savedDoc = await user.save();
@@ -34,7 +31,9 @@ const userController = {
                 const selectedUserID = selectedUser._id;
                 const selectedUserAdmin = selectedUser.admin;
                 const userToken = jwt.sign(
-                    {_id: selectedUserID, admin: selectedUserAdmin}, process.env.TOKEN_SECRETKEY
+                    {_id: selectedUserID, admin: selectedUserAdmin},
+                    process.env.TOKEN_SECRETKEY,
+                    {expiresIn: 3600000}
                 )
                 const options = {
                     secure: false,

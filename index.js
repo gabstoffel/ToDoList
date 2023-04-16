@@ -13,18 +13,13 @@ import * as dotenv from 'dotenv'
 dotenv.config()
 const port = process.env.PORT;
 const MONGODB_CONNECTION_URL = process.env.MONGODB_CONNECTION_URL;
-//'mongodb+srv://gabstoffel:FxkD3jcWR0Y7nASf@cluster0.kbmfuq3.mongodb.net/?retryWrites=true&w=majority
 
 //banco:
 mongoose.set('strictQuery', false)
-mongoose.connect('mongodb+srv://stoff:Y4crS48e2crceJvP@cluster0.kbmfuq3.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MONGODB_CONNECTION_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }, () => {console.log('DB connected')})
-
-
-
-//app.use(express.static(path.join(__dirname, "js")));
 app.use(cookieParser());
 app.use('/', express.static(path.join(__dirname, "public/register")));
 app.use('/login', express.static(path.join(__dirname, "public/login")))
@@ -32,4 +27,3 @@ app.use('/user', express.json(), router);
 app.use('/todolist', getAuthorization, express.static(path.join(__dirname, 'public/ToDoList')));
 app.use('/todolist', express.json(), todolist);
 app.listen(port, ()=>{console.log(`Running on port: ${port}`)});
-

@@ -185,16 +185,3 @@ textarea:focus, input:focus {
   box-shadow: 0.1rem 0.1rem 0.1rem black;
   cursor: pointer;
 }
-
-
-/* <div id=${post._id} class="card mb-2">
-                    <div class="card-header" draggable="true"h>
-                        <h5 class="card-title">${post.title}</h5>
-                        <img src="" onclick="deletePost('${post._id}')">
-                        <button onclick="deletePost('${post._id}')" "type="button" class="btn-close" aria-label="Close"></button>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-text">${post.description}</div>
-                    </div>
-                </div> */
-

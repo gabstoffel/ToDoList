@@ -19,7 +19,6 @@ body{
 #user_form{
     width: 80%;
 }
-
 #password, #userName, #email{
     margin: 1%;
     width: 100%;
