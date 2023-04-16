@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gabstoffel/JWT.git"
+    "url": "git+https://github.com/gabstoffel/ToDoList.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/gabstoffel/JWT/issues"
+    "url": "https://github.com/gabstoffel/ToDoList.git"
   },
-  "homepage": "https://github.com/gabstoffel/JWT#readme",
+  "homepage": "https://github.com/gabstoffel/ToDoList.git",
   "dependencies": {
     "@hapi/joi": "^17.1.1",
     "bcryptjs": "^2.4.3",
